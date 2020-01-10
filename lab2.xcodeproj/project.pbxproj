@@ -14,6 +14,7 @@
 		37FD3C9A23C8700900C51D37 /* lab2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37FD3C9823C8700900C51D37 /* lab2.xcdatamodeld */; };
 		37FD3C9C23C8700A00C51D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37FD3C9B23C8700A00C51D37 /* Assets.xcassets */; };
 		37FD3C9F23C8700A00C51D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37FD3C9D23C8700A00C51D37 /* LaunchScreen.storyboard */; };
+		37FD3CA723C8709700C51D37 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD3CA623C8709700C51D37 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		37FD3C9B23C8700A00C51D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37FD3C9E23C8700A00C51D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37FD3CA023C8700B00C51D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37FD3CA623C8709700C51D37 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				37FD3C9D23C8700A00C51D37 /* LaunchScreen.storyboard */,
 				37FD3CA023C8700B00C51D37 /* Info.plist */,
 				37FD3C9823C8700900C51D37 /* lab2.xcdatamodeld */,
+				37FD3CA623C8709700C51D37 /* DataModel.swift */,
 			);
 			path = lab2;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37FD3CA723C8709700C51D37 /* DataModel.swift in Sources */,
 				37FD3C9423C8700900C51D37 /* ViewController.swift in Sources */,
 				37FD3C9023C8700900C51D37 /* AppDelegate.swift in Sources */,
 				37FD3C9A23C8700900C51D37 /* lab2.xcdatamodeld in Sources */,

@@ -23,7 +23,7 @@ class ArchivingManager {
         // generating
         var sensors: [Sensor] = []
         var readings: [Reading] = []
-        generateSensorsAndReadings(&sensors, readingsNumber, &readings)
+        Utils.generateSensorsAndReadings(&sensors, readingsNumber, &readings)
         
         writeDataToFiles(sensors, readings)
         
@@ -49,19 +49,6 @@ class ArchivingManager {
         }        catch let x as NSError {
             print("readings not removed" + x.localizedDescription)
         }
-    }
-    
-    fileprivate func generateSensorsAndReadings(_ sensors: inout [Sensor], _ readingsNumber: Int, _ readings: inout [Reading]) {
-        for n in 1...20 {
-            let name = (n < 10 ?"S0\(n)" : "S\(n)")
-            sensors.append(Sensor(name: name , description: "Sensor number \(n)"))
-        }
-        print("Sensors generated.")
-        
-        for _ in 1...readingsNumber {
-            readings.append(Reading(timestamp: Utils.generateRandomTimestamp(), sensorName: getRandomSensor(sensors: sensors).name, value: Utils.generateRandomValue()))
-        }
-        print("Readings generated.")
     }
     
     fileprivate func writeDataToFiles(_ sensors: [Sensor], _ readings: [Reading]) {
@@ -184,10 +171,5 @@ class ArchivingManager {
         print("Querying avg per sensor finished in \(measuredTime)")
         
         return (measuredTime, averages)
-    }
-    
-    func getRandomSensor(sensors: [Sensor]) -> Sensor {
-        let sensorNumber = Int.random(in: 0 ..< sensors.count)
-        return sensors[sensorNumber]
     }
 }

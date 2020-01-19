@@ -8,6 +8,34 @@
 
 import Foundation
 
+class SqlSensor {
+    let id: Int
+    let name: String
+    let desc: String
+    
+    
+    init(id: Int, name: String, description: String) {
+        self.id = id
+        self.name = name
+        self.desc = description
+    }
+}
+
+class SqlReading {
+    
+    let id: Int
+    let timestamp: Int
+    let value: Float
+    let sensor: Int
+    
+    init(id: Int, timestamp: Int, value: Float, sensor: Int) {
+        self.id = id
+        self.timestamp = timestamp
+        self.value = value
+        self.sensor = sensor
+    }
+}
+
 class Sensor: NSObject, NSCoding {
     
     let name: String

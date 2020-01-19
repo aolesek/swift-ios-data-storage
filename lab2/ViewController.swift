@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func time(_ measuredTime: TimeInterval) -> String {
-        return String(format: "[%.4f s] ", measuredTime)
+    func timeStr(_ measuredTime: TimeInterval) -> String {
+        return String(format: "[%.5f s] ", measuredTime)
     }
     
     func log(_ str: String) {
@@ -32,39 +32,52 @@ class ViewController: UIViewController {
     
     @IBAction func archivingGenerateData(_ sender: Any) {
         let measuredTime = archiving.archivingGenerateData(readingsNumber: Utils.getReadingsNumber(numberOfReadings: numberOfReadings))
-        log(time(measuredTime) + "Data generated.")
+        log(timeStr(measuredTime) + "Data generated.")
     }
     
     @IBAction func archivingQueryExt(_ sender: Any) {
         let result = archiving.archivingQueryExt()
-        log(time(result.0) + String(format: "Min: %d, max: %d.", result.1! , result.2!))
+        log(timeStr(result.0) + String(format: "Min: %d, max: %d.", result.1! , result.2!))
     }
     
     @IBAction func archivingQueryAvg(_ sender: Any) {
         let result = archiving.archivingQueryAvg()
-        log(time(result.0) + String(format: "Average value: %f.", result.1))
+        log(timeStr(result.0) + String(format: "Average value: %f.", result.1))
     }
     
     @IBAction func archivingQuerySensorStats(_ sender: Any) {
         let result = archiving.archivingQuerySensorStats()
-        log(time(result.0) + String(format: "Calculated average for %d sensors.", result.1.count))
+        log(timeStr(result.0) + String(format: "Calculated average for %d sensors.", result.1.count))
         result.1.forEach { (s, d) in
-                log("Average for \(s.name) is \(d).");
-            }
+            log("Average for \(s.name) is \(d).");
+        }
     }
     
     //MARK: SQLite
+    
+    let sqliteManager = SqliteManager()
+    
     @IBAction func sqlGenerate(_ sender: Any) {
-        log("sql not implemented")
+        let result = sqliteManager.generateData(readingsNumber: Utils.getReadingsNumber(numberOfReadings: numberOfReadings))
+        log(timeStr(result) + "SQL data generated.")
     }
+    
     @IBAction func sqlMinMax(_ sender: Any) {
-        log("sql not implemented")
+        let result = sqliteManager.sqlMinMax()
+        log(timeStr(result.0) + String(format: "Min: %d, max: %d.", result.1!, result.2!))
     }
+    
     @IBAction func sqlAvg(_ sender: Any) {
-        log("sql not implemented")
+        let result = sqliteManager.sqlAvg()
+        log(timeStr(result.0) + String(format: "Average value: %f.", result.1!))
     }
+    
     @IBAction func sqlAvgPerSensor(_ sender: Any) {
-        log("sql not implemented")
+        let result = sqliteManager.sqlAvgPerSensor()
+        log(timeStr(result.0) + "Average value per sensor calculated.")
+        result.1.forEach { (sid, avg) in
+            log("Average for sensor \(sid) is \(avg)")
+        }
     }
     
     //MARK: Core Data
@@ -80,7 +93,7 @@ class ViewController: UIViewController {
     @IBAction func coreAvgPerSensor(_ sender: Any) {
         log("core data not implemented")
     }
-     
+    
 }
 
 public extension Float {

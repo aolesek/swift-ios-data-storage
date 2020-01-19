@@ -11,7 +11,7 @@ import Foundation
 struct Utils {
     
     static let DEFAULT_READINGS_NUMBER = 100
-
+    
     static func getReadingsNumber(numberOfReadings: UITextField!) -> Int {
         if let text = numberOfReadings?.text {
             if let number = Int(text) {
@@ -30,5 +30,38 @@ struct Utils {
     
     static func generateRandomValue() -> Float {
         return Float.random(min: 0.0, max: 100.0)
+    }
+    
+    static func generateSensorsAndReadings(_ sensors: inout [Sensor], _ readingsNumber: Int, _ readings: inout [Reading]) {
+        for n in 1...20 {
+            let name = (n < 10 ?"S0\(n)" : "S\(n)")
+            sensors.append(Sensor(name: name , description: "Sensor number \(n)"))
+        }
+        print("Sensors generated.")
+        
+        for _ in 1...readingsNumber {
+            readings.append(Reading(timestamp: Utils.generateRandomTimestamp(), sensorName: getRandomSensor(sensors: sensors).name, value: Utils.generateRandomValue()))
+        }
+        print("Readings generated.")
+    }
+    
+    static func getRandomSensor(sensors: [Sensor]) -> Sensor {
+        let sensorNumber = Int.random(in: 0 ..< sensors.count)
+        return sensors[sensorNumber]
+    }
+    
+    static func generateSqlSensorsAndReadings(_ sensors: inout [SqlSensor], _ readingsNumber: Int, _ readings: inout [SqlReading]) {
+        for n in 1...20 {
+            let name = (n < 10 ?"S0\(n)" : "S\(n)")
+            sensors.append(SqlSensor(id: n, name: name , description: "Sensor number \(n)"))
+        }
+        print("Sensors generated.")
+        
+        for m in 1...readingsNumber {
+            let sensorId = Int.random(in: 1 ..< 21)
+            
+            readings.append(SqlReading(id: m, timestamp: Utils.generateRandomTimestamp(), value: Utils.generateRandomValue(), sensor: sensorId))
+        }
+        print("Readings generated.")
     }
 }

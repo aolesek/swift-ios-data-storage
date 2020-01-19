@@ -10,172 +10,85 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let DEFAULT_READINGS_NUMBER = 100
-    
     @IBOutlet weak var numberOfReadings: UITextField!
+    @IBOutlet weak var console: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-    //MARK: Utils
-    
-    func getReadingsNumber() -> Int {
-        if let text = numberOfReadings?.text {
-            if let number = Int(text) {
-                return number
-            }
-        }
-        return DEFAULT_READINGS_NUMBER
+    func time(_ measuredTime: TimeInterval) -> String {
+        return String(format: "[%.4f s] ", measuredTime)
     }
     
-    func generateRandomTimestamp() -> Int {
-        let currentTime = Int(Date().timeIntervalSince1970)
-        let randomIntervalLessThanAYear = Int.random(in: 0 ..< 31556926)
-        let randomTime = currentTime - randomIntervalLessThanAYear;
-        return randomTime
-    }
-    
-    func generateRandomValue() -> Float {
-        return Float.random(min: 0.0, max: 100.0)
+    func log(_ str: String) {
+        console.text = console.text + "\n" + str;
     }
     
     //MARK: Archiving
     
-    @IBOutlet weak var archivingGenerationTime: UITextField!
-    @IBOutlet weak var archivingExtQueryTime: UITextField!
-    @IBOutlet weak var archivingAvgQueryTime: UITextField!
-    @IBOutlet weak var archivingSensorStatsQueryTime: UITextField!
+    let archiving = ArchivingManager()
     
     @IBAction func archivingGenerateData(_ sender: Any) {
-        //cleaning old files
-        let fileManager = FileManager.default
-        
-        do {
-            try fileManager.removeItem(atPath: "sensors.bin")
-        }        catch _ as NSError {
-            print("sensors not removed")
-        }
-        do {
-            try fileManager.removeItem(atPath: "readings.bin")
-        }        catch _ as NSError {
-            print("readings not removed")
-        }
-        
-        let startTime = Date()
-        // generating
-        var sensors: [Sensor] = []
-        for n in 1...20 {
-            let name = (n < 10 ?"S0\(n)" : "S\(n)")
-            sensors.append(Sensor(name: name , description: "Sensor number \(n)"))
-        }
-        print("Sensors generated.")
-        
-        var readings: [Reading] = []
-        for _ in 1...getReadingsNumber() {
-            readings.append(Reading(timestamp: generateRandomTimestamp(), sensor: getRandomSensor(sensors: sensors), value: generateRandomValue()))
-        }
-        print("Readings generated.")
-        
-        if let myFileUrl = URL(string: "sensors.bin") {
-            do {
-                let data = try NSKeyedArchiver.archivedData(withRootObject: sensors,
-                                                            requiringSecureCoding: false)
-                try data.write(to: myFileUrl)
-            } catch {
-                print("Couldn't write sensors file")
-            }
-        }
-        
-        if let myFileUrl = URL(string: "readings.bin") {
-            do {
-                let data = try NSKeyedArchiver.archivedData(withRootObject: readings,
-                                                            requiringSecureCoding: false)
-                try data.write(to: myFileUrl)
-            } catch {
-                print("Couldn't write readings file")
-            }
-        }
-        
-        // finish
-        let finishTime = Date()
-        let measuredTime = finishTime.timeIntervalSince(startTime)
-        
-        print("Finished in \(measuredTime)")
-        archivingGenerationTime?.text = String(measuredTime)
+        let measuredTime = archiving.archivingGenerateData(readingsNumber: Utils.getReadingsNumber(numberOfReadings: numberOfReadings))
+        log(time(measuredTime) + "Data generated.")
     }
     
     @IBAction func archivingQueryExt(_ sender: Any) {
-        archivingExtQueryTime?.text = "?"
+        let result = archiving.archivingQueryExt()
+        log(time(result.0) + String(format: "Min: %d, max: %d.", result.1! , result.2!))
     }
     
     @IBAction func archivingQueryAvg(_ sender: Any) {
-        archivingAvgQueryTime?.text = "?"
+        let result = archiving.archivingQueryAvg()
+        log(time(result.0) + String(format: "Average value: %f.", result.1))
     }
     
     @IBAction func archivingQuerySensorStats(_ sender: Any) {
-        archivingSensorStatsQueryTime?.text = "?"
-    }
-    
-    func getRandomSensor(sensors: [Sensor]) -> Sensor {
-        let sensorNumber = Int.random(in: 0 ..< sensors.count)
-        return sensors[sensorNumber]
+        let result = archiving.archivingQuerySensorStats()
+        log(time(result.0) + String(format: "Calculated average for %d sensors.", result.1.count))
+        result.1.forEach { (s, d) in
+                log("Average for \(s.name) is \(d).");
+            }
     }
     
     //MARK: SQLite
-    
-    @IBOutlet weak var sqlGenerationTime: UITextField!
-    @IBOutlet weak var sqlExtQueryTime: UITextField!
-    @IBOutlet weak var sqlAvgQueryTime: UITextField!
-    @IBOutlet weak var sqlSensorStatsQueryTime: UITextField!
-    
-    @IBAction func sqlGenerateData(_ sender: Any) {
-        sqlGenerationTime?.text = "?"
+    @IBAction func sqlGenerate(_ sender: Any) {
+        log("sql not implemented")
     }
-    
-    @IBAction func sqlQueryExt(_ sender: Any) {
-        sqlExtQueryTime?.text = "?"
+    @IBAction func sqlMinMax(_ sender: Any) {
+        log("sql not implemented")
     }
-    
-    @IBAction func sqlQueryAvg(_ sender: Any) {
-        sqlAvgQueryTime?.text = "?"
+    @IBAction func sqlAvg(_ sender: Any) {
+        log("sql not implemented")
     }
-    
-    @IBAction func sqlQuerySensorStats(_ sender: Any) {
-        sqlSensorStatsQueryTime?.text = "?"
+    @IBAction func sqlAvgPerSensor(_ sender: Any) {
+        log("sql not implemented")
     }
     
     //MARK: Core Data
-    
-    @IBOutlet weak var coreGenerationTime: UITextField!
-    @IBOutlet weak var coreExtQueryTime: UITextField!
-    @IBOutlet weak var coreAvgQueryTime: UITextField!
-    @IBOutlet weak var coreSensorStatsQueryTime: UITextField!
-    
-    @IBAction func coreGenerateData(_ sender: Any) {
-        coreGenerationTime?.text = "?"
+    @IBAction func coreGenerate(_ sender: Any) {
+        log("core data not implemented")
     }
-    
-    @IBAction func coreQueryExt(_ sender: Any) {
-        coreExtQueryTime?.text = "?"
+    @IBAction func coreMinMax(_ sender: Any) {
+        log("core data not implemented")
     }
-    
-    @IBAction func coreQueryAvg(_ sender: Any) {
-        coreAvgQueryTime?.text = "?"
+    @IBAction func coreAvg(_ sender: Any) {
+        log("core data not implemented")
     }
-    
-    @IBAction func coreQuerySensorStats(_ sender: Any) {
-        coreSensorStatsQueryTime?.text = "?"
+    @IBAction func coreAvgPerSensor(_ sender: Any) {
+        log("core data not implemented")
     }
+     
 }
 
 public extension Float {
-
+    
     static var random: Float {
         return Float(arc4random()) / 0xFFFFFFFF
     }
-
+    
     static func random(min: Float, max: Float) -> Float {
         return Float.random * (max - min) + min
     }

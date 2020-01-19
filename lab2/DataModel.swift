@@ -44,42 +44,42 @@ class Sensor: NSObject, NSCoding {
 
 class Reading: NSObject, NSCoding {
     
-    let timestamp: Int
-    var sensor: Sensor
-    let value: Float
+    var timestamp: Int
+    var sensorName: String
+    var value: Float
     
-    init(timestamp: Int, sensor: Sensor, value: Float) {
+    init(timestamp: Int, sensorName: String, value: Float) {
         self.timestamp = timestamp
-        self.sensor = sensor
+        self.sensorName = sensorName
         self.value = value
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(timestamp, forKey: PropertyKey.timestamp)
-        coder.encode(sensor, forKey: PropertyKey.sensor)
+        coder.encode(sensorName, forKey: PropertyKey.sensorName)
         coder.encode(value, forKey: PropertyKey.value)
     }
     
     required convenience init?(coder: NSCoder) {
-        guard let timestamp = coder.decodeObject(forKey: PropertyKey.timestamp) as? Int else {
+        guard let timestamp = coder.decodeInteger(forKey: PropertyKey.timestamp) as? Int else {
             NSLog("Unable to decode timestamp for reading")
             return nil
         }
-        guard let sensor = coder.decodeObject(forKey: PropertyKey.sensor) as? Sensor else {
+        guard let sensorName = coder.decodeObject(forKey: PropertyKey.sensorName) as? String else {
             NSLog("Unable to decode sensor for reading")
             return nil
         }
-        guard let value = coder.decodeObject(forKey: PropertyKey.value) as? Float else {
+        guard let value = coder.decodeFloat(forKey: PropertyKey.value) as? Float else {
             NSLog("Unable to decode value for reading")
             return nil
         }
         
-        self.init(timestamp: timestamp, sensor: sensor, value: value)
+        self.init(timestamp: timestamp, sensorName: sensorName, value: value)
     }
     
     struct PropertyKey {
         static let timestamp = "timestamp"
-        static let sensor = "sensor"
+        static let sensorName = "sensorName"
         static let value = "value"
     }
 }

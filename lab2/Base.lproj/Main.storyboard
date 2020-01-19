@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="aYE-RR-7Yf">
-                                <rect key="frame" x="8" y="52" width="380" height="199.5"/>
+                                <rect key="frame" x="8" y="52" width="76" height="199.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archiving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bo3-73-4SF">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="20.5"/>
@@ -25,75 +25,48 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="wmp-6h-6Kk">
-                                        <rect key="frame" x="0.0" y="27.5" width="380" height="172"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="76" height="172"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="hgW-h4-wmf">
-                                                <rect key="frame" x="0.0" y="0.0" width="143" height="172"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="172"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sav-jq-Hem">
-                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="31"/>
-                                                        <state key="normal" title="Generate data"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="62" height="31"/>
+                                                        <state key="normal" title="generate"/>
                                                         <connections>
                                                             <action selector="archivingGenerateData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Bu-zp-dqd"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6X-gf-d83">
-                                                        <rect key="frame" x="0.0" y="48" width="135" height="30"/>
-                                                        <state key="normal" title="Largest/smallest"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6X-gf-d83">
+                                                        <rect key="frame" x="0.0" y="48" width="63" height="30"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="minmax t">
+                                                                    <attributes>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
                                                         <connections>
                                                             <action selector="archivingQueryExt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dcu-OT-JnF"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UJ-ns-DQR">
-                                                        <rect key="frame" x="0.0" y="95" width="135" height="30"/>
-                                                        <state key="normal" title="Average of all"/>
+                                                        <rect key="frame" x="0.0" y="95" width="30" height="30"/>
+                                                        <state key="normal" title="avg"/>
                                                         <connections>
                                                             <action selector="archivingQueryAvg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YVa-lC-IXN"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jM1-Dc-0d8">
-                                                        <rect key="frame" x="0.0" y="142" width="135" height="30"/>
-                                                        <state key="normal" title="NumAvg per sensor"/>
+                                                        <rect key="frame" x="0.0" y="142" width="76" height="30"/>
+                                                        <state key="normal" title="avg/sensor"/>
                                                         <connections>
                                                             <action selector="archivingQuerySensorStats:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uwE-eT-BsT"/>
                                                         </connections>
                                                     </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="jM1-Dc-0d8" secondAttribute="trailing" constant="8" id="7qJ-OU-BEb"/>
-                                                    <constraint firstAttribute="width" constant="143" id="Glf-PA-Z6b"/>
-                                                    <constraint firstItem="jM1-Dc-0d8" firstAttribute="leading" secondItem="hgW-h4-wmf" secondAttribute="leading" id="RHn-Co-sZI"/>
-                                                    <constraint firstAttribute="trailing" secondItem="z6X-gf-d83" secondAttribute="trailing" constant="8" id="aee-Kf-Xzz"/>
-                                                    <constraint firstItem="z6X-gf-d83" firstAttribute="leading" secondItem="hgW-h4-wmf" secondAttribute="leading" id="dEW-V5-VSJ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Sav-jq-Hem" secondAttribute="trailing" constant="8" id="dz9-5N-Qa4"/>
-                                                    <constraint firstItem="Sav-jq-Hem" firstAttribute="leading" secondItem="hgW-h4-wmf" secondAttribute="leading" id="hHH-SL-tfm"/>
-                                                    <constraint firstItem="7UJ-ns-DQR" firstAttribute="leading" secondItem="hgW-h4-wmf" secondAttribute="leading" id="kGy-ei-eau"/>
-                                                    <constraint firstAttribute="trailing" secondItem="7UJ-ns-DQR" secondAttribute="trailing" constant="8" id="s6R-by-WNb"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BRI-Qs-R10">
-                                                <rect key="frame" x="218" y="0.0" width="162" height="172"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="gen time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lpt-gD-RLK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="latgest smallest time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pwv-X6-HXX">
-                                                        <rect key="frame" x="0.0" y="46" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="avg time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QLX-Pl-wFp">
-                                                        <rect key="frame" x="0.0" y="92" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="avg per sensor time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-Br-vze">
-                                                        <rect key="frame" x="0.0" y="138" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -103,100 +76,8 @@
                                     <constraint firstAttribute="height" constant="199.5" id="MML-kl-Ddz"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="qVp-K1-Jhi">
-                                <rect key="frame" x="8" y="259.5" width="380" height="199.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SQLite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plz-Ir-srM">
-                                        <rect key="frame" x="0.0" y="0.0" width="51.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="YUw-Ka-zg1">
-                                        <rect key="frame" x="0.0" y="27.5" width="380" height="172"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzM-PX-Ywv">
-                                                <rect key="frame" x="0.0" y="0.0" width="143" height="172"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5S-nf-cYe">
-                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="31"/>
-                                                        <state key="normal" title="Generate data"/>
-                                                        <connections>
-                                                            <action selector="archivingGenerateData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9ME-aq-DKl"/>
-                                                            <action selector="sqlGenerateData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEE-QT-4zJ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obt-bv-qJa">
-                                                        <rect key="frame" x="0.0" y="48" width="135" height="30"/>
-                                                        <state key="normal" title="Largest/smallest"/>
-                                                        <connections>
-                                                            <action selector="archivingQueryExt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PDd-R1-4ss"/>
-                                                            <action selector="sqlQueryExt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R3N-m2-L6J"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYP-Gf-3JU">
-                                                        <rect key="frame" x="0.0" y="95" width="135" height="30"/>
-                                                        <state key="normal" title="Average of all"/>
-                                                        <connections>
-                                                            <action selector="archivingQueryAvg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lYY-EP-YfB"/>
-                                                            <action selector="sqlQueryAvg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bSO-sx-0PO"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11C-gB-80O">
-                                                        <rect key="frame" x="0.0" y="142" width="135" height="30"/>
-                                                        <state key="normal" title="NumAvg per sensor"/>
-                                                        <connections>
-                                                            <action selector="archivingQuerySensorStats:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1db-1J-eHL"/>
-                                                            <action selector="sqlQuerySensorStats:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ob0-sH-mQT"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="11C-gB-80O" secondAttribute="trailing" constant="8" id="4wh-pn-4RZ"/>
-                                                    <constraint firstItem="obt-bv-qJa" firstAttribute="leading" secondItem="zzM-PX-Ywv" secondAttribute="leading" id="6rj-94-qES"/>
-                                                    <constraint firstItem="n5S-nf-cYe" firstAttribute="leading" secondItem="zzM-PX-Ywv" secondAttribute="leading" id="HEz-fy-Trh"/>
-                                                    <constraint firstItem="11C-gB-80O" firstAttribute="leading" secondItem="zzM-PX-Ywv" secondAttribute="leading" id="gBs-Cw-9lw"/>
-                                                    <constraint firstAttribute="trailing" secondItem="n5S-nf-cYe" secondAttribute="trailing" constant="8" id="gDs-q5-PvB"/>
-                                                    <constraint firstAttribute="trailing" secondItem="QYP-Gf-3JU" secondAttribute="trailing" constant="8" id="i3W-Uc-28a"/>
-                                                    <constraint firstItem="QYP-Gf-3JU" firstAttribute="leading" secondItem="zzM-PX-Ywv" secondAttribute="leading" id="jx6-M3-H7d"/>
-                                                    <constraint firstAttribute="trailing" secondItem="obt-bv-qJa" secondAttribute="trailing" constant="8" id="shh-wK-zmA"/>
-                                                    <constraint firstAttribute="width" constant="143" id="uSY-fo-PVa"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="RMx-Si-NTu">
-                                                <rect key="frame" x="218" y="0.0" width="162" height="172"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="gen time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNU-lA-hC2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="latgest smallest time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D0l-Bk-fae">
-                                                        <rect key="frame" x="0.0" y="46" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <action selector="sqlExtQueryTime:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Ki0-i7-RvT"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="avg time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q78-WM-H5h">
-                                                        <rect key="frame" x="0.0" y="92" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="avg per sensor time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mlw-cB-tZK">
-                                                        <rect key="frame" x="0.0" y="138" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="o8N-0l-VKN">
-                                <rect key="frame" x="8" y="467" width="380" height="199.5"/>
+                                <rect key="frame" x="296" y="53" width="89" height="199.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Core Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZd-qq-K2O">
                                         <rect key="frame" x="0.0" y="0.0" width="77" height="20.5"/>
@@ -205,79 +86,40 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="GYg-Z5-Lmx">
-                                        <rect key="frame" x="0.0" y="27.5" width="380" height="172"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="89" height="172"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="GOH-ik-Q3D">
-                                                <rect key="frame" x="0.0" y="0.0" width="143" height="172"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="89" height="172"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwC-7V-ZEQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="31"/>
-                                                        <state key="normal" title="Generate data"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="31"/>
+                                                        <state key="normal" title="generate 3"/>
                                                         <connections>
-                                                            <action selector="archivingGenerateData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HPC-dW-Hj7"/>
-                                                            <action selector="coreGenerateData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ped-lm-3iK"/>
+                                                            <action selector="coreGenerate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N6t-Ld-URu"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5E9-0B-ffw">
-                                                        <rect key="frame" x="0.0" y="48" width="135" height="30"/>
-                                                        <state key="normal" title="Largest/smallest"/>
+                                                        <rect key="frame" x="0.0" y="48" width="76" height="30"/>
+                                                        <state key="normal" title="minmax t 3"/>
                                                         <connections>
-                                                            <action selector="archivingQueryExt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LOZ-kJ-Fk9"/>
-                                                            <action selector="coreQueryExt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LcA-Kl-miw"/>
+                                                            <action selector="coreMinMax:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BHB-Ua-Rfu"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cph-NT-bvJ">
-                                                        <rect key="frame" x="0.0" y="95" width="135" height="30"/>
-                                                        <state key="normal" title="Average of all"/>
+                                                        <rect key="frame" x="0.0" y="95" width="38" height="30"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                        <state key="normal" title="avg 3"/>
                                                         <connections>
-                                                            <action selector="archivingQueryAvg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GCU-dc-t6F"/>
-                                                            <action selector="coreQueryAvg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ob-Jo-UQa"/>
+                                                            <action selector="coreAvg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lW5-o5-zch"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFu-Bi-YdF">
-                                                        <rect key="frame" x="0.0" y="142" width="135" height="30"/>
-                                                        <state key="normal" title="NumAvg per sensor"/>
+                                                        <rect key="frame" x="0.0" y="142" width="89" height="30"/>
+                                                        <state key="normal" title="avg/sensor 3"/>
                                                         <connections>
-                                                            <action selector="archivingQuerySensorStats:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FqA-b0-Oj0"/>
-                                                            <action selector="coreQuerySensorStats:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Lj-FK-XG1"/>
+                                                            <action selector="coreAvgPerSensor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C9M-Uo-mbg"/>
                                                         </connections>
                                                     </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="cph-NT-bvJ" secondAttribute="trailing" constant="8" id="47H-GA-ESN"/>
-                                                    <constraint firstItem="IwC-7V-ZEQ" firstAttribute="leading" secondItem="GOH-ik-Q3D" secondAttribute="leading" id="7Nh-Kr-paK"/>
-                                                    <constraint firstItem="qFu-Bi-YdF" firstAttribute="leading" secondItem="GOH-ik-Q3D" secondAttribute="leading" id="AMZ-nU-fV2"/>
-                                                    <constraint firstAttribute="trailing" secondItem="5E9-0B-ffw" secondAttribute="trailing" constant="8" id="KTO-ft-gYJ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="qFu-Bi-YdF" secondAttribute="trailing" constant="8" id="Lfp-ik-CVK"/>
-                                                    <constraint firstItem="cph-NT-bvJ" firstAttribute="leading" secondItem="GOH-ik-Q3D" secondAttribute="leading" id="O3D-1w-7LI"/>
-                                                    <constraint firstAttribute="width" constant="143" id="X2j-tT-Mva"/>
-                                                    <constraint firstAttribute="trailing" secondItem="IwC-7V-ZEQ" secondAttribute="trailing" constant="8" id="koa-Hp-NXo"/>
-                                                    <constraint firstItem="5E9-0B-ffw" firstAttribute="leading" secondItem="GOH-ik-Q3D" secondAttribute="leading" id="xal-KV-MrX"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Scy-g4-s8C">
-                                                <rect key="frame" x="218" y="0.0" width="162" height="172"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="gen time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DvF-2d-daO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="latgest smallest time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JMQ-mE-Nc3">
-                                                        <rect key="frame" x="0.0" y="46" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="avg time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5dB-2K-CX9">
-                                                        <rect key="frame" x="0.0" y="92" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="avg per sensor time" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odJ-Yc-e3L">
-                                                        <rect key="frame" x="0.0" y="138" width="162" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -288,7 +130,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Spc-w8-uSR">
-                                <rect key="frame" x="8" y="674.5" width="398" height="62.5"/>
+                                <rect key="frame" x="8" y="260" width="398" height="62.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of readings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkC-rz-H6E">
                                         <rect key="frame" x="0.0" y="0.0" width="152" height="20.5"/>
@@ -297,44 +139,91 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Fv-sM-icS">
-                                        <rect key="frame" x="0.0" y="28.5" width="390" height="34"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="52" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="7Fv-sM-icS" secondAttribute="trailing" constant="8" id="F70-MN-2j6"/>
-                                </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="qVp-K1-Jhi">
+                                <rect key="frame" x="159" y="53" width="89" height="198.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SQLite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plz-Ir-srM">
+                                        <rect key="frame" x="0.0" y="0.0" width="51.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="YUw-Ka-zg1">
+                                        <rect key="frame" x="0.0" y="27.5" width="89" height="171"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzM-PX-Ywv">
+                                                <rect key="frame" x="0.0" y="0.0" width="89" height="171"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5S-nf-cYe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="30"/>
+                                                        <state key="normal" title="generate 2"/>
+                                                        <connections>
+                                                            <action selector="sqlGenerate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5nc-8z-c3O"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obt-bv-qJa">
+                                                        <rect key="frame" x="0.0" y="47" width="76" height="30"/>
+                                                        <state key="normal" title="minmax t 2"/>
+                                                        <connections>
+                                                            <action selector="sqlMinMax:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wT0-zI-MBQ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYP-Gf-3JU">
+                                                        <rect key="frame" x="0.0" y="94" width="38" height="30"/>
+                                                        <state key="normal" title="avg 2"/>
+                                                        <connections>
+                                                            <action selector="sqlAvg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ugW-vq-bJx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11C-gB-80O">
+                                                        <rect key="frame" x="0.0" y="141" width="89" height="30"/>
+                                                        <state key="normal" title="avg/sensor 2"/>
+                                                        <connections>
+                                                            <action selector="sqlAvgPerSensor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="12P-8M-8ky"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FbZ-iI-CFg">
+                                <rect key="frame" x="8" y="348" width="398" height="491"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="11"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Spc-w8-uSR" firstAttribute="top" secondItem="o8N-0l-VKN" secondAttribute="bottom" constant="8" id="2DM-bZ-b0z"/>
-                            <constraint firstItem="o8N-0l-VKN" firstAttribute="top" secondItem="qVp-K1-Jhi" secondAttribute="bottom" constant="8" id="A9T-NW-Int"/>
+                            <constraint firstItem="FbZ-iI-CFg" firstAttribute="top" secondItem="Spc-w8-uSR" secondAttribute="bottom" constant="25.5" id="0PY-Km-iPD"/>
+                            <constraint firstItem="FbZ-iI-CFg" firstAttribute="leading" secondItem="Spc-w8-uSR" secondAttribute="leading" id="9RE-se-loE"/>
+                            <constraint firstItem="o8N-0l-VKN" firstAttribute="top" secondItem="qVp-K1-Jhi" secondAttribute="bottom" constant="-198.5" id="A9T-NW-Int"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Spc-w8-uSR" secondAttribute="trailing" constant="8" id="HTK-L0-WSL"/>
                             <constraint firstItem="aYE-RR-7Yf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="bKg-Cl-gWY"/>
-                            <constraint firstItem="aYE-RR-7Yf" firstAttribute="leading" secondItem="qVp-K1-Jhi" secondAttribute="leading" id="g0r-5W-Tbj"/>
+                            <constraint firstItem="Spc-w8-uSR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="bzH-D2-dbT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FbZ-iI-CFg" secondAttribute="bottom" constant="23" id="cDh-Ta-eaJ"/>
+                            <constraint firstItem="aYE-RR-7Yf" firstAttribute="leading" secondItem="qVp-K1-Jhi" secondAttribute="leading" constant="-151" id="g0r-5W-Tbj"/>
                             <constraint firstItem="aYE-RR-7Yf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="gax-b5-2k3"/>
-                            <constraint firstItem="qVp-K1-Jhi" firstAttribute="top" secondItem="aYE-RR-7Yf" secondAttribute="bottom" constant="8" id="poO-3n-6Th"/>
-                            <constraint firstItem="o8N-0l-VKN" firstAttribute="leading" secondItem="qVp-K1-Jhi" secondAttribute="leading" id="u2c-q6-8lZ"/>
+                            <constraint firstItem="Spc-w8-uSR" firstAttribute="top" secondItem="o8N-0l-VKN" secondAttribute="bottom" constant="7.5" id="h5L-oL-xTh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Spc-w8-uSR" secondAttribute="trailing" constant="8" id="jqk-x4-ZpY"/>
+                            <constraint firstItem="FbZ-iI-CFg" firstAttribute="trailing" secondItem="Spc-w8-uSR" secondAttribute="trailing" id="nAE-84-1wK"/>
+                            <constraint firstItem="qVp-K1-Jhi" firstAttribute="top" secondItem="aYE-RR-7Yf" secondAttribute="bottom" constant="-198.5" id="poO-3n-6Th"/>
+                            <constraint firstItem="o8N-0l-VKN" firstAttribute="leading" secondItem="qVp-K1-Jhi" secondAttribute="leading" constant="137" id="u2c-q6-8lZ"/>
                             <constraint firstItem="Spc-w8-uSR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="vOS-2i-4IA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="archivingAvgQueryTime" destination="QLX-Pl-wFp" id="GJU-z9-hEs"/>
-                        <outlet property="archivingExtQueryTime" destination="pwv-X6-HXX" id="hwY-DG-Ke0"/>
-                        <outlet property="archivingGenerationTime" destination="Lpt-gD-RLK" id="QrA-ao-oAO"/>
-                        <outlet property="archivingSensorStatsQueryTime" destination="7hb-Br-vze" id="LZz-jm-61F"/>
-                        <outlet property="coreAvgQueryTime" destination="5dB-2K-CX9" id="J1v-BV-syb"/>
-                        <outlet property="coreExtQueryTime" destination="JMQ-mE-Nc3" id="OSA-6K-IHT"/>
-                        <outlet property="coreGenerationTime" destination="DvF-2d-daO" id="bgN-Rq-jVG"/>
-                        <outlet property="coreSensorStatsQueryTime" destination="odJ-Yc-e3L" id="k7a-NN-JrP"/>
+                        <outlet property="console" destination="FbZ-iI-CFg" id="ia7-iu-KZQ"/>
                         <outlet property="numberOfReadings" destination="7Fv-sM-icS" id="pyp-7b-nNF"/>
-                        <outlet property="sqlAvgQueryTime" destination="q78-WM-H5h" id="qK3-kk-1Aw"/>
-                        <outlet property="sqlExtQueryTime" destination="D0l-Bk-fae" id="L5P-M2-bJZ"/>
-                        <outlet property="sqlGenerationTime" destination="aNU-lA-hC2" id="Z2b-Bm-EQa"/>
-                        <outlet property="sqlSensorStatsQueryTime" destination="mlw-cB-tZK" id="WIW-uJ-ngs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ArchivingManager.readArchivedData(_:_:):ArchivingManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(Data(referencing:readingsData))">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ArchivingManager.generateSensorsAndReadings(_:_:_:):ArchivingManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

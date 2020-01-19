@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3707ADA923D4F39400D393ED /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3707ADA823D4F38A00D393ED /* libsqlite3.tbd */; };
+		370B41FB23D4518B00AD1541 /* ArchivingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B41FA23D4518B00AD1541 /* ArchivingManager.swift */; };
+		370B41FD23D4527B00AD1541 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B41FC23D4527B00AD1541 /* Utils.swift */; };
 		37FD3C9023C8700900C51D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD3C8F23C8700900C51D37 /* AppDelegate.swift */; };
 		37FD3C9223C8700900C51D37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD3C9123C8700900C51D37 /* SceneDelegate.swift */; };
 		37FD3C9423C8700900C51D37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD3C9323C8700900C51D37 /* ViewController.swift */; };
@@ -18,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3707ADA623D4F2FB00D393ED /* lab2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lab2-Bridging-Header.h"; sourceTree = "<group>"; };
+		3707ADA823D4F38A00D393ED /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		370B41FA23D4518B00AD1541 /* ArchivingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingManager.swift; sourceTree = "<group>"; };
+		370B41FC23D4527B00AD1541 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		37FD3C8C23C8700900C51D37 /* lab2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37FD3C8F23C8700900C51D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37FD3C9123C8700900C51D37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,17 +42,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3707ADA923D4F39400D393ED /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3707ADA723D4F38A00D393ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3707ADA823D4F38A00D393ED /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		37FD3C8323C8700900C51D37 = {
 			isa = PBXGroup;
 			children = (
+				3707ADA623D4F2FB00D393ED /* lab2-Bridging-Header.h */,
 				37FD3C8E23C8700900C51D37 /* lab2 */,
 				37FD3C8D23C8700900C51D37 /* Products */,
+				3707ADA723D4F38A00D393ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +87,8 @@
 				37FD3CA023C8700B00C51D37 /* Info.plist */,
 				37FD3C9823C8700900C51D37 /* lab2.xcdatamodeld */,
 				37FD3CA623C8709700C51D37 /* DataModel.swift */,
+				370B41FA23D4518B00AD1541 /* ArchivingManager.swift */,
+				370B41FC23D4527B00AD1541 /* Utils.swift */,
 			);
 			path = lab2;
 			sourceTree = "<group>";
@@ -147,6 +167,8 @@
 				37FD3CA723C8709700C51D37 /* DataModel.swift in Sources */,
 				37FD3C9423C8700900C51D37 /* ViewController.swift in Sources */,
 				37FD3C9023C8700900C51D37 /* AppDelegate.swift in Sources */,
+				370B41FD23D4527B00AD1541 /* Utils.swift in Sources */,
+				370B41FB23D4518B00AD1541 /* ArchivingManager.swift in Sources */,
 				37FD3C9A23C8700900C51D37 /* lab2.xcdatamodeld in Sources */,
 				37FD3C9223C8700900C51D37 /* SceneDelegate.swift in Sources */,
 			);
@@ -300,6 +322,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.agh.aolesek.lab2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "lab2-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -317,6 +340,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.agh.aolesek.lab2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "lab2-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

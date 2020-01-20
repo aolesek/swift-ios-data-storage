@@ -81,19 +81,29 @@ class ViewController: UIViewController {
     }
     
     //MARK: Core Data
+    
+    let coreManager = CoreDataManager(moc: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+    
     @IBAction func coreGenerate(_ sender: Any) {
-        log("core data not implemented")
+        let res = coreManager.coreGenerate(readingsNumber: Utils.getReadingsNumber(numberOfReadings: numberOfReadings))
+        log(timeStr(res) + "CoreData data generated.")
     }
     @IBAction func coreMinMax(_ sender: Any) {
-        log("core data not implemented")
+        let res = coreManager.coreMinMax()
+        log(timeStr(res.0) + String(format: "Min %d, max %d.", res.1 ?? -1 , res.2 ?? -1))
     }
     @IBAction func coreAvg(_ sender: Any) {
-        log("core data not implemented")
-    }
-    @IBAction func coreAvgPerSensor(_ sender: Any) {
-        log("core data not implemented")
+        let res = coreManager.coreAvg()
+        log(timeStr(res.0) + String(format: "Average value calculated: %f", res.1 ?? -1.0))
     }
     
+    @IBAction func coreAvgPerSensor(_ sender: Any) {
+        let res = coreManager.coreAvgPerSensor()
+        log(timeStr(res.0) + "Average value per sensor calculated.")
+        res.1.forEach { (sensor, avg) in
+            log("Average for sensor \(sensor) is \(avg)")
+        }
+    }
 }
 
 public extension Float {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3707ADA923D4F39400D393ED /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3707ADA823D4F38A00D393ED /* libsqlite3.tbd */; };
 		3707ADAB23D4F3E400D393ED /* SqliteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707ADAA23D4F3E400D393ED /* SqliteManager.swift */; };
+		3707ADAD23D5143000D393ED /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707ADAC23D5143000D393ED /* CoreDataManager.swift */; };
 		370B41FB23D4518B00AD1541 /* ArchivingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B41FA23D4518B00AD1541 /* ArchivingManager.swift */; };
 		370B41FD23D4527B00AD1541 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B41FC23D4527B00AD1541 /* Utils.swift */; };
 		37FD3C9023C8700900C51D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD3C8F23C8700900C51D37 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 		3707ADA623D4F2FB00D393ED /* lab2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lab2-Bridging-Header.h"; sourceTree = "<group>"; };
 		3707ADA823D4F38A00D393ED /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3707ADAA23D4F3E400D393ED /* SqliteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteManager.swift; sourceTree = "<group>"; };
+		3707ADAC23D5143000D393ED /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		370B41FA23D4518B00AD1541 /* ArchivingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingManager.swift; sourceTree = "<group>"; };
 		370B41FC23D4527B00AD1541 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		37FD3C8C23C8700900C51D37 /* lab2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 				370B41FA23D4518B00AD1541 /* ArchivingManager.swift */,
 				370B41FC23D4527B00AD1541 /* Utils.swift */,
 				3707ADAA23D4F3E400D393ED /* SqliteManager.swift */,
+				3707ADAC23D5143000D393ED /* CoreDataManager.swift */,
 			);
 			path = lab2;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				3707ADAB23D4F3E400D393ED /* SqliteManager.swift in Sources */,
 				370B41FD23D4527B00AD1541 /* Utils.swift in Sources */,
 				370B41FB23D4518B00AD1541 /* ArchivingManager.swift in Sources */,
+				3707ADAD23D5143000D393ED /* CoreDataManager.swift in Sources */,
 				37FD3C9A23C8700900C51D37 /* lab2.xcdatamodeld in Sources */,
 				37FD3C9223C8700900C51D37 /* SceneDelegate.swift in Sources */,
 			);

@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoreReading" representedClassName="CoreReading" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="sensor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreSensor"/>
+    </entity>
+    <entity name="CoreSensor" representedClassName="CoreSensor" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreSensor" inverseName="relationship" inverseEntity="CoreSensor"/>
+    </entity>
+    <elements>
+        <element name="CoreSensor" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="CoreReading" positionX="-54" positionY="18" width="128" height="88"/>
+    </elements>
 </model>

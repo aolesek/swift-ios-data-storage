@@ -3,15 +3,15 @@
     <entity name="CoreReading" representedClassName="CoreReading" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="sensor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreSensor"/>
+        <relationship name="sensor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreSensor" inverseName="relationship" inverseEntity="CoreSensor"/>
     </entity>
     <entity name="CoreSensor" representedClassName="CoreSensor" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreSensor" inverseName="relationship" inverseEntity="CoreSensor"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreReading" inverseName="sensor" inverseEntity="CoreReading"/>
     </entity>
     <elements>
-        <element name="CoreSensor" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="CoreReading" positionX="-54" positionY="18" width="128" height="88"/>
+        <element name="CoreSensor" positionX="-333.1171875" positionY="16.96875" width="128" height="88"/>
     </elements>
 </model>
